@@ -16,9 +16,19 @@ You may not use Array's `map()`, `filter()`, or `forEach()` methods.
 ***********************************************************************/
 
 function pickyMyMap(arr, cb) {
-	// Your code here 
+	let resultArr = []
+	for(let key of arr){
+		if(cb(key)) resultArr.push(cb(key))
+	}
+	// console.log(resultArr)
+	return resultArr
 }
 
+const nums = [1, 2, 3, 4];
+pickyMyMap(nums, (num) => num - 2); // [-1, 1, 2]
+
+const booleans = [true, false, true, false, true];
+pickyMyMap(booleans, (boolean) => !boolean); // [true, true]
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
 	module.exports = pickyMyMap;
